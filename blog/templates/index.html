@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+ {% for post in blog_posts %}
+ <!-- Post preview-->
+ <div class="post-preview">
+    <a href="post_detail.html">
+        <h2 class="post-title">{{ post.title }}</h2>
+        <h3 class="post-subtitle">{{ post.text|truncatechars:100 }}</h3>
+        <div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase" href="{% url "post_detail" post.pk %}">Read more →</a></div>
+    </a>
+    {% if post.image %}
+    <a href="#!"><img class="img-fluid" src="{{ post.image.url }}"  alt="" style="max-height:300px"/></a>
+    {% endif %}
+    <p class="post-meta">
+        Posted by
+        <a href="#!">{{ post.author }}</a>
+        on {{ post.created_date }}
+    </p>
+</div>
+<!-- Divider-->
+<!--<hr class="my-4" />-->
+{% endfor %}
+
+<!-- Pager-->
+<!--<div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase" href="#">Older Posts →</a></div>
+</div>
+</div>
+</div>-->
+{% endblock content %}  

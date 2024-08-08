@@ -1,0 +1,24 @@
+    {% extends "base.html" %}
+
+{% block content %}
+
+ <!-- Post preview-->
+ <div class="post-preview">
+    <a href="post_detail.html">
+        <h2 class="post-title">{{ object.title }}</h2>
+        <h3 class="post-subtitle">{{ object.text }}</h3>
+    </a>
+    <p class="post-meta">
+        Posted by
+        <a href="#!">{{ object.author }}</a>
+        {{ object.created_date }}
+    </p>
+</div>
+<!-- Divider-->
+<hr class="my-4" />
+<!-- Pager-->
+<div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase" href="{% url "blog-home" %}">&larr; Older Posts </a></div>
+</div>
+</div>
+</div>
+{% endblock content %}   
